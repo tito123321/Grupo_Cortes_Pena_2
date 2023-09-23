@@ -1,29 +1,22 @@
 #include <stdio.h>
-#include <string.h>
-
+#include <stdlib.h>
 int main() {
     char cad[50];
-    int i = 0, j, k;
-
-    printf("Ingrese la cadena de caracteres: ");
-    fgets(cad, sizeof(cad), stdin);
-
-    while (cad[i] != '\n') {
+    int i, j;
+    printf("Introduce una cadena de caracteres formada por números y letras, en ese orden: ");
+    scanf("%s", cad);
+    i = 0;
+    while (cad[i] != '\0') {
         if (cad[i] >= '0' && cad[i] <= '9') {
-            j = cad[i] - '0';
-            i++;
-            while (cad[i] >= 'a' && cad[i] <= 'z') {
-                for (k = 0; k < j; k++) {
-                    printf("%c", cad[i]);
-                }
-                i++;
+            j = 0;
+            while (j < cad[i] - '0') {
+                printf("%c", cad[i + 1]);
+                j++;
             }
-        } else {
             i++;
         }
+        i++;
     }
-
     printf("\n");
-
     return 0;
 }
